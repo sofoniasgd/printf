@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * printchar - printfs a char with padding(if width > 0)
- * @c: character to be printed
+ * @number: character to be printed
  * @width: width specifier
  * Return: number of characters printed
  */

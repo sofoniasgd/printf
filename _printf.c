@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-int i, counter;
+int i, counter, charnumber;
 va_list arguments;
 va_start(arguments, format);
 
@@ -24,7 +24,19 @@ while (*(format + i) != '\0')
 	/* if found '%' ? */
 	if (*(format + i) == '%')
 		{
-
+		if (*(format + i + 1) == '%')
+			{
+			_putchar(37);
+			counter++;
+			i += 2;
+			continue;
+			}
+		if (*(format + i + 1) == 'c')
+			{
+			charnumber = va_arg(arguments, int);
+			counter += printchar(charnumber, 0);
+			i++;
+			}
 		}
 	/* didnt find '%', so print chracter */
 	else
