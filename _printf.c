@@ -10,6 +10,7 @@
 int _printf(const char *format, ...)
 {
 int i, counter, charnumber;
+char *string;
 va_list arguments;
 va_start(arguments, format);
 
@@ -35,6 +36,12 @@ while (*(format + i) != '\0')
 			{
 			charnumber = va_arg(arguments, int);
 			counter += printchar(charnumber, 0);
+			i++;
+			}
+		if (*(format + i + 1) == 's')
+			{
+			string = va_arg(arguments, char *);
+			counter += printletters(string, 's', '1', 0, '1');
 			i++;
 			}
 		}
