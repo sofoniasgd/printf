@@ -1,6 +1,6 @@
 #include "main.h"
 #include<stddef.h>
-#include<stdio.h>
+
 /**
  * printchar - printfs a char with padding(if width > 0)
  * @number: character to be printed
