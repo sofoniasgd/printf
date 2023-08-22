@@ -73,6 +73,10 @@ while (*(format + i) != '\0')
 		else if (*(format + i + 1) == '\0')
 			{
 				return (-1); }
+		else
+			{
+			_putchar(*(format + i));
+			i++; }
 		}
 	/* didnt find '%', so print chracter */
 	else if (*(format + i) == '\\')
