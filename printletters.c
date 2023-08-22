@@ -1,6 +1,30 @@
 #include "main.h"
 #include<stdlib.h>
 /**
+ * reverse - reverses an array
+ * @a: array pointer
+ * Return: number of chars printed
+ */
+
+int reverse(char *a)
+{
+int n, number;
+if (a == NULL)
+        return (-1);
+n = 0;
+while (*(a + n) != '\0')
+	{
+	n++;
+	}
+number = n + 1;
+while (n >= 0)
+	{
+	_putchar(*(a + n));
+	n--;
+	}
+return (number);
+}
+/**
  * rot13 - does the ROT13 cipher in an input string
  * @n: pointer to start of string
  * Return: *n pointer to start of string
@@ -92,13 +116,18 @@ while (*(string + i) != '\0')
 		_putchar(*(string + i)); }
 	i++;
 	}
-return (i);
 }
 else if (type == 'R')
 	{
-	i += rot13(string);
+	i = rot13(string);
 	if (i == -1)
 		return (-1);
+	}
+else if (type == 'r')
+	{
+	i = reverse(string);
+	if (i == -1)
+                return (-1);
 	}
 return (i);
 }
