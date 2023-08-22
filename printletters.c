@@ -1,6 +1,39 @@
 #include "main.h"
 #include<stdlib.h>
 /**
+ * rot13 - does the ROT13 cipher in an input string
+ * @n: pointer to start of string
+ * Return: *n pointer to start of string
+ */
+int rot13(char *n)
+{
+char look[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char set[] =  "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+int i, j, count;
+if (n == NULL)
+	return (-1);
+count = 0;
+j = 0;
+i = 0;
+while (*(n + j) != '\0')
+{
+	i = 0;
+	while (look[i] != '\0')
+	{
+		if (*(n + j) == look[i])
+		{
+			/* *(n + j) = set[i]; */
+			_putchar(set[i]);
+			count++;
+			break;
+		}
+	i++;
+	}
+j++;
+}
+return (count);
+}
+/**
  * printnill - prints (nill)
  * Return: none
  */
@@ -31,8 +64,6 @@ if (string == NULL)
 	return (5);
 	}
 
-if (type == '0')
-	{}
 if (flag == '1')
 	{}
 if (width == 0)
@@ -40,6 +71,8 @@ if (width == 0)
 if (lengthmod == '0')
 	{}
 i = 0;
+if (type == 's')
+{
 while (*(string + i) != '\0')
 	{
 	if (*(string + i) == 92)
@@ -58,6 +91,14 @@ while (*(string + i) != '\0')
 		{
 		_putchar(*(string + i)); }
 	i++;
+	}
+return (i);
+}
+else if (type == 'R')
+	{
+	i += rot13(string);
+	if (i == -1)
+		return (-1);
 	}
 return (i);
 }

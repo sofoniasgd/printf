@@ -65,10 +65,10 @@ while (*(format + i) != '\0')
 			charnumber = va_arg(arguments, int);
 			counter += printchar(charnumber, 0);
 			i++; }
-		else if (*(format + i + 1) == 's')
+		else if (*(format + i + 1) == 's' || *(format + i + 1) == 'r' || *(format + i + 1) == 'S')
 			{
 			string = va_arg(arguments, char *);
-			counter += printletters(string, 's', '1', 0, '1');
+			counter += printletters(string, *(format + i + 1), '1', 0, '1');
 			i++; }
 		else if (*(format + i + 1) == '\0')
 			{
