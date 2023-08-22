@@ -7,7 +7,7 @@
  * @character: escape charatcter
  * Return: none
  */
-void printescape(char character)
+int printescape(char character)
 {
 if (character == 'n')
 	{
@@ -24,7 +24,11 @@ if (character == '\"')
 if (character == '\\')
 	{
 	_putchar(92); }
-}
+else
+	{
+	return (-1); }
+return (0);
+	}
 /**
  * _printf - custom implementation of the printf function
  * @format: format string with/without format specifiers to be printed
@@ -33,13 +37,15 @@ if (character == '\\')
 
 int _printf(const char *format, ...)
 {
-int i, counter, charnumber;
+int i, counter, charnumber, retchk;
 char *string;
 va_list arguments;
 va_start(arguments, format);
 /* check if format string is NULL */
 if (format == NULL)
-	exit(0);
+	{
+	return (-1); }
+retchk = 0;
 i = 0;
 counter = 0;
 /* start parsing the format string */
@@ -54,22 +60,29 @@ while (*(format + i) != '\0')
 			counter++;
 			i += 2;
 			continue; }
-		if (*(format + i + 1) == 'c')
+		else if (*(format + i + 1) == 'c')
 			{
 			charnumber = va_arg(arguments, int);
 			counter += printchar(charnumber, 0);
 			i++; }
-		if (*(format + i + 1) == 's')
+		else if (*(format + i + 1) == 's')
 			{
 			string = va_arg(arguments, char *);
 			counter += printletters(string, 's', '1', 0, '1');
-			i++; }}
+			i++; }
+		else if (*(format + i + 1) == '\0')
+			{
+				return (-1); }
+		}
 	/* didnt find '%', so print chracter */
 	else if (*(format + i) == '\\')
 		{
 		counter += 2;
-		printescape(*(format + i + 1));
-		i += 2;}
+		retchk = printescape(*(format + i + 1));
+		if (retchk == -1)
+			{
+			return (-1); }
+		i += 2; }
 	else
 		{
 		_putchar(*(format + i));

@@ -1,4 +1,5 @@
 #include "main.h"
+#include<stdlib.h>
 /**
  * printletters - prints strings
  * @string: pointer to string
@@ -11,6 +12,16 @@
 int printletters(char *string, char type, char flag, int width, char lengthmod)
 {
 int i;
+if (string == NULL)
+	{
+	_putchar(40);
+	_putchar(110);
+	_putchar(117);
+	_putchar(108);
+	_putchar(108);
+	_putchar(41);
+	return (5);
+	}
 
 if (type == '0')
 	{}
