@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- *
- *
- *
+ * printbinary - prints a number in binary
+ * @number: number to be printed
+ * Return: count of bits printed
  */
-int printletters(char *string, char type, char flag, int width, char lengthmod)
+int printbinary(__attribute((unused))int *number)
 {
 return (0);
 }
