@@ -34,7 +34,17 @@ if (lengthmod == '0')
 i = 0;
 while (*(string + i) != '\0')
 	{
-	_putchar(*(string + i));
+	if (*(string + i) == '\\')
+		{
+		retchk = printescape(*(format + i + 1));
+		if (retchk == -1)
+			{
+			return (-1); }
+		i += 2;
+		}
+	else
+		{
+		_putchar(*(string + i)); }
 	i++;
 	}
 return (i);
