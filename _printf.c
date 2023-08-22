@@ -37,7 +37,7 @@ return (0);
 
 int _printf(const char *format, ...)
 {
-int i, counter,charnumber, retchk;
+int i, counter, charnumber, retchk;
 char *string;
 va_list arguments;
 va_start(arguments, format);
@@ -58,7 +58,8 @@ while (*(format + i) != '\0')
 			{
 			_putchar(37);
 			counter++;
-			i += 2; }
+			i += 2;
+			continue; }
 		else if (*(format + i + 1) == 'c')
 			{
 			charnumber = va_arg(arguments, int);
@@ -75,10 +76,6 @@ while (*(format + i) != '\0')
 		else if (*(format + i + 1) == ' ' && *(format + i + 2) == '\0')
 			{
 			return (-1); }
-		else 
-			{
-			_putchar(*(format + i));
-			}
 		}
 	/* didnt find '%', so print chracter */
 	else if (*(format + i) == '\\')
