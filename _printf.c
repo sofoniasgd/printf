@@ -73,7 +73,7 @@ while (*(format + i) != '\0')
 		else if (*(format + i + 1) == '\0')
 			{
 			return (-1); }
-		else if (*(format + i + 1) == ' ' && *(format + i + 2) == '\0');
+		else if (*(format + i + 1) == ' ' && *(format + i + 2) == '\0')
 			{
 			return (=1); }
 		}
