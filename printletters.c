@@ -1,6 +1,19 @@
 #include "main.h"
 #include<stdlib.h>
 /**
+ * printnill - prints (nill)
+ * Return: none
+ */
+void printnill(void)
+{
+	_putchar(40);
+	_putchar(110);
+	_putchar(117);
+	_putchar(108);
+	_putchar(108);
+	_putchar(41);
+}
+/**
  * printletters - prints strings
  * @string: pointer to string
  * @type: format specifier oneof ('s', 'r', 'R')
@@ -14,12 +27,7 @@ int printletters(char *string, char type, char flag, int width, char lengthmod)
 int i, retchk;
 if (string == NULL)
 	{
-	_putchar(40);
-	_putchar(110);
-	_putchar(117);
-	_putchar(108);
-	_putchar(108);
-	_putchar(41);
+	printnill();
 	return (5);
 	}
 
@@ -41,6 +49,10 @@ while (*(string + i) != '\0')
 			{
 			return (-1); }
 		i += 2;
+		}
+	else if (*(string + i) == '%' || *(string + i + 1) == '%')
+		{
+		_putchar(37);
 		}
 	else
 		{
