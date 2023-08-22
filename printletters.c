@@ -11,7 +11,7 @@
  */
 int printletters(char *string, char type, char flag, int width, char lengthmod)
 {
-int i;
+int i, retchk;
 if (string == NULL)
 	{
 	_putchar(40);
@@ -34,9 +34,9 @@ if (lengthmod == '0')
 i = 0;
 while (*(string + i) != '\0')
 	{
-	if (*(string + i) == '\\')
+	if (*(string + i) == 92)
 		{
-		retchk = printescape(*(format + i + 1));
+		retchk = printescape(*(string + i + 1));
 		if (retchk == -1)
 			{
 			return (-1); }
