@@ -37,7 +37,7 @@ return (0);
 
 int _printf(const char *format, ...)
 {
-int i, counter, charnumber, number, retchk;
+int i, counter, charnumber, number, retchk, temp;
 unsigned int bin;
 char *string;
 va_list arguments;
@@ -49,6 +49,7 @@ if (format == NULL)
 retchk = 0;
 i = 0;
 counter = 0;
+temp = 0;
 /* start parsing the format string */
 while (*(format + i) != '\0')
 	{
@@ -77,8 +78,10 @@ while (*(format + i) != '\0')
 			counter += printletters(string, *(format + i + 1), '1', 0, '1');
 			i++; }
 		else if (*(format + i + 1) == 'b')
-			{
-			bin = va_arg(arguments, unsigned int);	
+			{			
+			temp = va_arg(arguments, int);	
+			if (temp < 0)
+				bin = (unsigned int)(temp * -1);
 			counter += printbinary(bin);
 			i++; }
 		else if (*(format + i + 1) == '\0')

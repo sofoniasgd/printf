@@ -1,38 +1,59 @@
 #include "main.h"
 /**
+ * powr - calculates result of x base 2
+ * @ex: exponent
+ *  Return:
+ */
+unsigned int powr(unsigned int ex)
+{
+unsigned int  i;
+unsigned int result;
+result = 1;
+if (ex == 0)
+	return (1);
+if (ex == 32)
+	return (4294967295);
+for (i = 0; i < ex; i++)
+	{
+	result *= 2;
+	}
+return (result);
+}
+/**
  * printbinary - prints a number in binary
  * @number: number to be printed
  * Return: count of bits printed
  */
 int printbinary(unsigned int number)
 {
-int count, i;
-unsigned int num;
+int count, length;
+unsigned int num, i;
+char *arr;
 num = number;
 count = 0;
+length = 0;
 if (number == 0)
 	{
-	return(0); }
-for(i = 32; i >= 1;i--)
+	return (0); }
+for(i = 0; i < 32; i++)
 	{
-
-	if (num == 2)
+	if (num > powr(i))
+		count++;
+	}
+for (count; count >=0; count--)
+	{
+	if (num >= powr(count))
+		{
+		_putchar(49);
+		length++;
+		num -= powr(count);
+		}
+	else
 		{
 		_putchar(48);
-		_putchar(49);
-		count +=2;
-		break;
+		length++;
 		}
-	if (num == 1)
-		{
-		_putchar(49);
-		count++;
-		break;
-		}
-	_putchar((num % 2) + 48);
-	num = (num / 2);
-	count++;
-		
 	}
-return (count);
+
+return (length);
 }
