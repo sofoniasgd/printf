@@ -22,7 +22,7 @@ while (n >= 0)
 	_putchar(*(a + n));
 	n--;
 	}
-return (number);
+return (number - 1);
 }
 /**
  * rot13 - does the ROT13 cipher in an input string
