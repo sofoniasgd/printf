@@ -28,7 +28,7 @@ int printbinary(unsigned int number)
 {
 int count, length;
 unsigned int num, i;
-char *arr;
+
 num = number;
 count = 0;
 length = 0;
@@ -37,10 +37,11 @@ if (number == 0)
 	return (0); }
 for(i = 0; i < 32; i++)
 	{
-	if (num > powr(i))
+	if (num >= powr(i))
 		count++;
 	}
-for (count; count >=0; count--)
+
+for (; count >= 0; count--)
 	{
 	if (num >= powr(count))
 		{
