@@ -14,11 +14,11 @@ int main(void)
 
 	res *= 2;
 
-	len = _printf("%b", -1024);
+	len = _printf("%b", 1024);
 	len2 = printf("10000000000");
 	printf("len-%i\n", len);
 	printf("len2-%i\n", len2);
-	len = _printf("%b", 1024);
+	len = _printf("%b", -1024);
 	len2 = printf("11111111111111111111110000000000");
 	printf("len-%i\n", len);
 	printf("len2-%i\n", len2);
