@@ -38,6 +38,7 @@ return (0);
 int _printf(const char *format, ...)
 {
 int i, counter, charnumber, number, retchk;
+unsigned int bin;
 char *string;
 va_list arguments;
 va_start(arguments, format);
@@ -67,14 +68,18 @@ while (*(format + i) != '\0')
 			i++; }
 		else if (*(format + i + 1) == 'd' || *(format + i + 1) == 'i')
 			{
-			number = va_arg(arguments, int);
-			
+			number = va_arg(arguments, int);	
 			counter += printnumbers(number, *(format + i + 1), '1', 0, '1');
 			i++; }
 		else if (*(format + i + 1) == 's' || *(format + i + 1) == 'r' || *(format + i + 1) == 'S')
 			{
 			string = va_arg(arguments, char *);
 			counter += printletters(string, *(format + i + 1), '1', 0, '1');
+			i++; }
+		else if (*(format + i + 1) == 'b')
+			{
+			bin = va_arg(arguments, unsigned int);	
+			counter += printbinary(bin);
 			i++; }
 		else if (*(format + i + 1) == '\0')
 			{

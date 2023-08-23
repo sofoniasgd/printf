@@ -7,7 +7,7 @@ int printletters(char *string, char type, char flag, int width, char lengthmod);
 int printnumbers(int number, char type, char flag, int width, char lengthmod);
 int printescape(char character);
 int printchar(int number, int width);
-int printbinary(int *number);
+int printbinary(unsigned int number);
 int printoctal(int *number, char flag, char lengthmod);
 int printhex(int *number, char flag, char lengthmod);
 
