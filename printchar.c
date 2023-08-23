@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * printchar - printfs a char with padding(if width > 0)
+ * printchar - prints a char with padding(if width > 0)
  * @number: character to be printed
  * @width: width specifier
  * Return: number of characters printed
@@ -10,6 +10,10 @@ int printchar(int number, int width)
 int i;
 int counter;
 counter = 0;
+if (!number)
+	{
+	return (2);
+	}
 /* check if width specified >= 2 */
 if (width >= 2)
 	{

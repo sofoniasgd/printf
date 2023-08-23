@@ -37,7 +37,7 @@ return (0);
 
 int _printf(const char *format, ...)
 {
-int i, counter, charnumber, retchk;
+int i, counter, charnumber, number, retchk;
 char *string;
 va_list arguments;
 va_start(arguments, format);
@@ -65,6 +65,12 @@ while (*(format + i) != '\0')
 			charnumber = va_arg(arguments, int);
 			counter += printchar(charnumber, 0);
 			i++; }
+		else if (*(format + i + 1) == 'd' || *(format + i + 1) == 'i')
+			{
+			number = va_arg(arguments, int);
+			
+			counter += printnumbers(number, *(format + i + 1), '1', 0, '1');
+			i++; }
 		else if (*(format + i + 1) == 's' || *(format + i + 1) == 'r' || *(format + i + 1) == 'S')
 			{
 			string = va_arg(arguments, char *);
@@ -76,7 +82,13 @@ while (*(format + i) != '\0')
 		else if (*(format + i + 1) == ' ' && *(format + i + 2) == '\0')
 			{
 			return (-1); }
+		else
+			{
+			_putchar(*(format + i));
+			counter++;
+			}
 		}
+
 	/* didnt find '%', so print chracter */
 	else if (*(format + i) == '\\')
 		{
