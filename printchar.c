@@ -12,7 +12,7 @@ int counter;
 counter = 0;
 if (!number)
 	{
-	return (2);
+	return (1);
 	}
 /* check if width specified >= 2 */
 if (width >= 2)

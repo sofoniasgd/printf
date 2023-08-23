@@ -83,7 +83,7 @@ while (*(format + i) != '\0')
 			i++; }
 		else if (*(format + i + 1) == '\0')
 			{
-			break; }
+			return (-1); }
 		else if (*(format + i + 1) == ' ' && *(format + i + 2) == '\0')
 			{
 			return (-1); }
@@ -95,14 +95,14 @@ while (*(format + i) != '\0')
 		}
 
 	/* didnt find '%', so print chracter */
-	else if (*(format + i) == '\\')
+	else if (*(format + i) == 92)
 		{
-		counter += 2;
+		counter++;
 		retchk = printescape(*(format + i + 1));
 		if (retchk == -1)
 			{
 			return (-1); }
-		i += 2; }
+		i += 1; }
 	else
 		{
 		_putchar(*(format + i));

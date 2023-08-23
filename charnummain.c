@@ -63,7 +63,19 @@ int main(void)
 	num2 = printf("Zero Binary:[%b]\n", ZERO);
     printf("num1:[%d]\n", num1);
 	printf("num2:[%d]\n", num2);
-	
-	
+
+printf("task0 remaining checks\n");
+len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+printf("len=[%i]\n", len);
+printf("len2=[%i]\n", len2);
+len = _printf("%c", '\0');
+len2 = printf("%c", '\0');
+printf("len=[%i]\n", len);
+printf("len2=[%i]\n", len2);
+len = _printf("%");
+len2 = printf("%");
+printf("len=[%i]\n", len);
+printf("len2=[%i]\n", len2);
 	return (0);
 }

@@ -85,7 +85,7 @@ int i, retchk;
 if (string == NULL)
 	{
 	printnill();
-	return (5);
+	return (6);
 	}
 
 if (flag == '1')
