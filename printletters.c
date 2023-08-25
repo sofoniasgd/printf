@@ -10,7 +10,7 @@ int reverse(char *a)
 {
 int n, number;
 if (a == NULL)
-        return (-1);
+	return (-1);
 n = 0;
 while (*(a + n) != '\0')
 	{
@@ -33,12 +33,13 @@ int rot13(char *n)
 {
 char look[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 char set[] =  "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-int i, j, count;
+int i, j, flag, count;
 if (n == NULL)
 	return (-1);
 count = 0;
 j = 0;
 i = 0;
+flag = 0;
 while (*(n + j) != '\0')
 {
 	i = 0;
@@ -49,10 +50,18 @@ while (*(n + j) != '\0')
 			/* *(n + j) = set[i]; */
 			_putchar(set[i]);
 			count++;
+			flag = 1;
 			break;
 		}
 	i++;
 	}
+	if (flag == 1)
+		flag = 0;
+	else
+		{
+		_putchar(*(n + j));
+	       count++;	}
+
 j++;
 }
 return (count);
@@ -127,7 +136,7 @@ else if (type == 'r')
 	{
 	i = reverse(string);
 	if (i == -1)
-                return (-1);
+		return (-1);
 	}
 return (i);
 }
