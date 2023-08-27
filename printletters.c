@@ -16,7 +16,7 @@ while (*(a + n) != '\0')
 	{
 	n++;
 	}
-number = n + 1;
+number = n;
 while (n >= 0)
 	{
 	_putchar(*(a + n));
