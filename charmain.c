@@ -7,12 +7,14 @@
  */
 int main(void)
 {
-int count;
+int count, count2;
 char one, two, three;
 one = 'a';
 two = 'b';
 three = 'C';
-count = _printf("%c %c %c", one, two, three);
+count = _printf("%c %c %c \n", one, two, three);
+count2 = _printf("%% %% sample text %c \n", three);
 printf("character count=> %i\n", count);
+printf("character count2=> %i\n", count2);
 return (0);
 }

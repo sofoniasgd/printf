@@ -37,19 +37,18 @@ return (0);
 
 int _printf(const char *format, ...)
 {
-int i, counter, charnumber, number, retchk;
+int i, el, counter, charnumber, number, retchk;
 unsigned int bin;
 char *string;
 va_list arguments;
 va_start(arguments, format);
 /* check if format string is NULL */
 if (format == NULL)
-	{
-	return (-1); }
+	return (-1);
 retchk = 0;
 i = 0;
 counter = 0;
-
+el = 1;
 /* start parsing the format string */
 while (*(format + i) != '\0')
 	{
@@ -60,26 +59,25 @@ while (*(format + i) != '\0')
 			{
 			_putchar(37);
 			counter++;
-			i += 2;
-			continue; }
+			i += 2; }
 		else if (*(format + i + 1) == 'c')
 			{
 			charnumber = va_arg(arguments, int);
 			counter += printchar(charnumber, 0);
-			i++; }
-		else if (*(format + i + 1) == 'd' || *(format + i + 1) == 'i')
-			{
-			number = va_arg(arguments, int);	
-			counter += printnumbers(number, *(format + i + 1), '1', 0, '1');
 			i++; }
 		else if (*(format + i + 1) == 's' || *(format + i + 1) == 'r' || *(format + i + 1) == 'R' || *(format + i + 1) == 'S')
 			{
 			string = va_arg(arguments, char *);
 			counter += printletters(string, *(format + i + 1), '1', 0, '1');
 			i++; }
+		else if (*(format + i + 1) == 'd' || *(format + i + 1) == 'i')
+			{
+			number = va_arg(arguments, int);
+			counter += printnumbers(number, *(format + i + 1), '1', 0, '1');
+			i++; }
 		else if (*(format + i + 1) == 'b')
-			{			
-			bin = va_arg(arguments, unsigned int);	
+		{
+			bin = va_arg(arguments, unsigned int);
 			counter += printbinary(bin);
 			i++; }
 		else if (*(format + i + 1) == '\0')
@@ -88,21 +86,18 @@ while (*(format + i) != '\0')
 		else if (*(format + i + 1) == ' ' && *(format + i + 2) == '\0')
 			{
 			return (-1); }
-		else
+		else if (el)
 			{
 			_putchar(*(format + i));
-			counter++;
-			}
+			counter++; }
 		}
-
-	/* didnt find '%', so print chracter */
+	/* didnt find % so continue printing */
 	else if (*(format + i) == 92)
 		{
 		counter++;
 		retchk = printescape(*(format + i + 1));
 		if (retchk == -1)
-			{
-			return (-1); }
+			return (-1);
 		i += 1; }
 	else
 		{
