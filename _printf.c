@@ -59,7 +59,8 @@ while (*(format + i) != '\0')
 			{
 			_putchar(37);
 			counter++;
-			i += 2; }
+			i += 2;
+			continue; }
 		else if (*(format + i + 1) == 'c')
 			{
 			charnumber = va_arg(arguments, int);
