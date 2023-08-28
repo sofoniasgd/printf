@@ -16,13 +16,14 @@ while (*(a + n) != '\0')
 	{
 	n++;
 	}
-number = n + 1;
+number = n;
+n -= 1;
 while (n >= 0)
 	{
 	_putchar(*(a + n));
 	n--;
 	}
-return (number - 1);
+return (number);
 }
 /**
  * rot13 - does the ROT13 cipher in an input string
