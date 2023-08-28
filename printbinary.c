@@ -2,7 +2,7 @@
 /**
  * powr - calculates result of x base 2
  * @ex: exponent
- * @Return: result
+ * Return: result
  */
 unsigned int powr(unsigned int ex)
 {
@@ -36,7 +36,7 @@ if (number == 0)
 	{
 	_putchar(48);
 	return (1); }
-for(i = 0; i < 32; i++)
+for (i = 0; i < 32; i++)
 	{
 	if (num >= powr(i))
 		count++;

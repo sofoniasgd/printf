@@ -86,7 +86,7 @@ return (counter);
 int printnumbers(int number, __attribute__((unused))char type, __attribute__((unused))char flag, __attribute__((unused))int width, __attribute__((unused))char lengthmod)
 {
 int count;
-if(!number)
+if (!number)
 	{
 	_putchar(48);
 	return (1); }
