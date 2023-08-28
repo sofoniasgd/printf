@@ -2,7 +2,7 @@
 /**
  * powr - calculates result of x base 2
  * @ex: exponent
- *  Return:
+ * @Return: result
  */
 unsigned int powr(unsigned int ex)
 {
