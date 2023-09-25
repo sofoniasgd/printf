@@ -80,7 +80,7 @@ while (*(format + i) != '\0')
 			{
 			number = va_arg(arguments, int);
 			counter += printnumbers(number, *(format + i + 1), '1', 0, '1');
-			i++; }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
+			i++; }
 		else if (*(format + i + 1) == 'b')
 		{
 			bin = va_arg(arguments, unsigned int);
