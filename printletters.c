@@ -49,7 +49,7 @@ while (*(n + j) != '\0')
 			/* *(n + j) = set[i]; */
 			_putchar(set[i]);
 			count++;
-			break;
+			continue;
 		}
 	i++;
 	}

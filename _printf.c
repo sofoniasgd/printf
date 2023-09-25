@@ -72,7 +72,7 @@ while (*(format + i) != '\0')
 			number = va_arg(arguments, int);	
 			counter += printnumbers(number, *(format + i + 1), '1', 0, '1');
 			i++; }
-		else if (*(format + i + 1) == 's' || *(format + i + 1) == 'r' || *(format + i + 1) == 'S')
+		else if (*(format + i + 1) == 's' || *(format + i + 1) == 'r' || *(format + i + 1) == 'S' || *(format + i + 1) == 'R')
 			{
 			string = va_arg(arguments, char *);
 			counter += printletters(string, *(format + i + 1), '1', 0, '1');
