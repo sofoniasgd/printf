@@ -13,5 +13,5 @@ Authorized functions and macros
 * va_arg (man 3 va_arg)
 
 Compilation
-* our code will be compiled this way:
+* code should be compiled this way:
   $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
