@@ -3,16 +3,7 @@ C Group project
 0x11. C - printf
 
 
-* In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples
-* The prototypes of all your functions should be included in your header file called main.h
-* Don’t forget to push your header file
-* All your header files should be include guarded
-* Note that we will not provide the _putchar function for this project
 
-#GitHub
-           * There should be one project repository per group. The other members do not fork or clone the project to ensure only one of the team has the repository in their github account otherwise you risk scoring 0%
-
-#More Info
 
 Authorized functions and macros
 
@@ -26,20 +17,12 @@ Authorized functions and macros
 
 #Compilation
 
-* Your code will be compiled this way:
+* our code will be compiled this way:
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 * As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
 * Our main files will include your main header file (main.h): #include main.h
 * You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf.
 
-* We strongly encourage you to work all together on a set of tests
-* If the task does not specify what to do with an edge case, do the same as printf
-Copyright - Plagiarism
-
-* You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
-* You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
-* You are not allowed to publish any content of this project.
-* Any form of plagiarism is strictly forbidden and will result in removal from the program.
 
 Tasks 0
 
